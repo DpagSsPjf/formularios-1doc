@@ -1,0 +1,889 @@
+[
+    {
+        "mostrar": "in,out",
+        "label": "<b>Dados do Paciente</b>",
+        "campo": "tit_dad_pac",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Nome",
+        "campo": "pac_nome",
+        "tipo": "text",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Sexo",
+        "campo": "pac_sex",
+        "tipo": "select_valor",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1",
+        "opcoes": [
+            "Masculino", "Feminino"
+        ]
+    },
+    {
+      "mostrar": "in,out",
+      "label": "Data de Nascimento",
+      "campo": "pac_data_nasc",
+      "tipo": "data",
+      "colunas_in": "6",
+      "colunas_out": "6",
+      "requerido": "1",
+      "aceita_recategorizar": "1"
+  },
+    {
+        "mostrar": "in,out",
+        "label": "CPF",
+        "campo": "pac_cpf",
+        "tipo": "text",
+        "placeholder": "sem pontos e traço",
+        "attr": [{
+            "": "function validarCPF(cpf) { if (!/[0-9]{11}/.test(cpf) || cpf == \"00000000000\" || cpf == \"11111111111\" || cpf == \"22222222222\" || cpf == \"33333333333\" || cpf == \"44444444444\" || cpf == \"55555555555\" || cpf == \"66666666666\" || cpf == \"77777777777\" || cpf == \"88888888888\" || cpf == \"99999999999\") return false; var add = 0; for (i=0; i < 9; i ++) add += parseInt(cpf.charAt(i)) * (10 - i); var rev = 11 - (add % 11); if (rev == 10 || rev == 11) rev = 0; if (rev != parseInt(cpf.charAt(9))) return false; add = 0; for (i = 0; i < 10; i ++) add += parseInt(cpf.charAt(i)) * (11 - i); rev = 11 - (add % 11); if (rev == 10 || rev == 11) rev = 0; if (rev != parseInt(cpf.charAt(10))) return false; return true; } if (this.value !== \"\" && !validarCPF(this.value)) { alert(\"CPF inválido\"); this.value = \"\"; return; } ",
+            "maxlength": "11"
+        }],
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CNS (Cartão Nacional do SUS)",
+        "campo": "pac_cns",
+        "tipo": "text",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<b>Endereço para Notificação</b>",
+        "campo": "tit_inf_clin",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CEP",
+        "campo": "end_cep",
+        "tipo": "text",
+        "placeholder": "xxxxxxxx (sem traço)",
+        "attr": [{
+            "": "this.value = this.value.replace(/\\D/g,\"\")",
+            "": "async function pesquisacep(valor) { var res = await fetch(\"https://viacep.com.br/ws/\" + valor + \"/json/\"); var { logradouro, bairro, localidade, uf } = await res.json(); if ( logradouro !== undefined ) { document.getElementById(\"end_bai\").value = bairro; document.getElementById(\"end_logr\").value = logradouro; document.getElementById(\"end_cid\").value = localidade; document.getElementById(\"end_uf\").value = uf; } } if (this.value.length == 8) { pesquisacep(this.value) } else { this.value = \"\" }",
+            "maxlength": "8"
+        }],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Endereço",
+        "campo": "end_logr",
+        "tipo": "text",
+        "placeholder": "Rua, Avenida, Estrada, etc",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Número",
+        "campo": "end_num",
+        "tipo": "text",
+        "attr": [{
+            "": "this.value = this.value.replace(/\\D/g,\"\")",
+            "maxlength": "5"
+        }],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Complemento",
+        "campo": "end_comp",
+        "tipo": "text",
+        "placeholder": "Casa, Apto, Sala, etc",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Bairro",
+        "campo": "end_bai",
+        "tipo": "text",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Cidade",
+        "campo": "end_cid",
+        "tipo": "text",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "UF",
+        "campo": "end_uf",
+        "tipo": "text",
+        "placeholder": "XX",
+        "attr": [{
+            "": "this.value = this.value.toUpperCase(); this.value = this.value.replace(/[^A-Z]+/g, \"\"); if (this.value.length == 2) { if (!this.value.match(\"^(\\s*(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO)?)$\")) { this.value = \"\" } }",
+            "maxlength": "2"
+        }],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Telefones",
+        "campo": "pac_tel",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<b>Informações Clínicas</b>",
+        "campo": "tit_inf_clin",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Perfil do paciente",
+        "campo": "pac_perf",
+        "tipo": "select_valor",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1",
+        "opcoes": [
+            "Ambulatorial", "Internado"
+        ]
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Para paciente internados:",
+        "campo": "tit_pac_intern",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Data da Internação",
+        "campo": "pac_data_intern",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Data de início da diálise",
+        "campo": "pac_data_ini_dia",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    
+    {
+        "mostrar": "in,out",
+        "label": "Tratamento conservador",
+        "campo": "tex_trat_cons",
+        "tipo": "select_valor",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "opcoes":["Sim","Não"],
+        "conditions":[{
+            "when":"equal",
+            "value":"Sim",
+            "action":{
+                "show":["tratamento_conser_ond","tratamento_conser_qnd"]
+            }
+        },
+       {
+            "when":"equal",
+            "value":"Não",
+            "action":{
+                "show":["sistema_saude"]
+            }
+        }]
+    },
+    {
+        "mostrar":"in,out",
+        "label":"Onde",
+        "campo":"tratamento_conser_ond",
+        "tipo":"text",
+        "placeholder":"",
+        "classe":"hide",
+        "colunas_in":"6",
+        "colunas_out":"6"
+    },
+    {
+        "mostrar":"in,out",
+        "label":"Quando",
+        "campo":"tratamento_conser_qnd",
+        "tipo":"data",
+        "classe":"hide",
+        "colunas_in":"4",
+        "colunas_out":"4"
+    },
+    
+    {
+        "mostrar":"in,out",
+        "label":"Sistema de Saúde",
+        "campo":"sistema_saude",
+        "tipo":"select_valor",
+        "classe":"hide",
+        "colunas_in":"4",
+        "colunas_out":"4",
+        "opcoes":["SUS", "Sistema Suplementar"]
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Doença renal base:",
+        "campo": "tex_doe_ren_base",
+        "tipo": "select_valor",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "opcoes":[
+            "Nefroesclerose Hipertensiva",
+            "Doença Renal Policística",
+            "Doença Renal Diabética",
+            "Perda de transplante renal",
+            "Glomerulopatia"
+            ]
+    },
+   {
+       "mostrar": "in,out",
+       "label": "<br />Qual",
+       "campo": "doe_ren_base_glom_tipo",
+       "classe": "hide",
+       "tipo": "text",
+       "colunas_in": "4",
+       "colunas_out": "4"
+   },
+  {
+  "mostrar": "in,out",
+  "label": "OUTROS",
+  "campo": "como_out",
+  "tipo": "text",
+  "placeholder": "",
+  "colunas_in": "4",
+  "colunas_out": "4",
+  "requerido": "0"
+  },	
+   {
+       "mostrar": "in,out",
+       "label": "<br />Qual",
+       "campo": "doe_ren_base_out_tipo",
+       "classe": "hide",
+       "tipo": "text",
+       "colunas_in": "4",
+       "colunas_out": "4"
+   },
+   {
+       "mostrar": "in,out",
+       "valor_padrao": "<br />Co-morbidades / Fatores de Risco:",
+       "campo": "tex_como",
+       "tipo": "texto",
+       "colunas_in": "12",
+       "colunas_out": "12"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "HAS",
+       "campo": "como_has",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "DPOC",
+       "campo": "como_dpoc",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "DM",
+       "campo": "como_dm",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Obesidade",
+       "campo": "como_obes",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Dislipidemia",
+       "campo": "como_disl",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Tabagismo",
+       "campo": "como_taba",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "IAM prévio / DAC",
+       "campo": "como_iam",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Nefrotoxic / AINES",
+       "campo": "como_nefrot",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "AVC Prévio",
+       "campo": "como_avc",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Neoplasia",
+       "campo": "como_neop",
+       "tipo": "checkbox",
+       "attr": [{
+           "": "if(this.checked){ this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\"; document.getElementById(\"como_neop_tipo\").style = \"display: block\"} else { document.getElementById(\"como_neop_tipo\").style = \"display: hide\"; this.style = \"\" }"
+       }],
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "0"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "<br />Qual",
+       "campo": "como_neop_tipo",
+       "classe": "hide",
+       "tipo": "text",
+       "colunas_in": "4",
+       "colunas_out": "4"
+   },
+  {
+  "mostrar": "in,out",
+  "label": "OUTRAS",
+  "campo": "como_out",
+  "tipo": "text",
+  "placeholder": "",
+  "colunas_in": "4",
+  "colunas_out": "4",
+  "requerido": "0"
+  },		
+   {
+       "mostrar": "in,out",
+       "label": "<br />Qual",
+       "campo": "como_out_tipo",
+       "classe": "hide",
+       "tipo": "text",
+       "colunas_in": "4",
+       "colunas_out": "4"
+   },
+   {
+       "mostrar": "in,out",
+       "valor_padrao": "<br />Vacinação:",
+       "campo": "tex_vac",
+       "tipo": "texto",
+       "colunas_in": "12",
+       "colunas_out": "12"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Hepatite B",
+       "campo": "vac_hep",
+       "tipo": "select_valor",
+       "colunas_in": "12",
+       "colunas_out": "12",
+       "requerido": "1",
+       "opcoes": [
+           "Sim", "Não", "Não informado"
+       ]
+   },
+  {
+      "mostrar": "in,out",
+      "label": "<br />1ª dose",
+      "campo": "vac_covid_sim_dose_1",
+      "tipo": "checkbox",
+      "classe": "hide",
+      "attr": [{
+          "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white; display: block\" : this.style = \"display: block\""
+      }],
+      "colunas_in": "6",
+      "colunas_out": "6",
+      "requerido": "0"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "<br />Marca",
+      "campo": "vac_covid_sim_marca_1",
+      "classe": "hide",
+      "tipo": "text",
+      "colunas_in": "6",
+      "colunas_out": "6"
+  },
+  {
+    "mostrar": "in,out",
+    "label": "<br />2ª dose",
+    "campo": "vac_covid_sim_dose_2",
+    "tipo": "checkbox",
+    "classe": "hide",
+    "attr": [{
+      "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white; display: block\" : this.style = \"display: block\""
+      }],
+    "colunas_in": "6",
+    "colunas_out": "6",
+    "requerido": "0"
+  },
+  {
+    "mostrar": "in,out",
+    "label": "<br />Marca",
+    "campo": "vac_covid_sim_marca_2",
+    "classe": "hide",
+    "tipo": "text",
+    "colunas_in": "6",
+    "colunas_out": "6"
+  },
+  {
+    "mostrar": "in,out",
+    "label": "<br />3ª dose",
+    "campo": "vac_covid_sim_dose_3",
+    "tipo": "checkbox",
+    "classe": "hide",
+    "attr": [{
+      "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white; display: block\" : this.style = \"display: block\""
+      }],
+    "colunas_in": "6",
+    "colunas_out": "6",
+    "requerido": "0"
+  },
+  {
+    "mostrar": "in,out",
+    "label": "<br />Marca",
+    "campo": "vac_covid_sim_marca_3",
+    "classe": "hide",
+    "tipo": "text",
+    "colunas_in": "6",
+    "colunas_out": "6"
+  },
+  
+   {
+       "mostrar": "in,out",
+       "valor_padrao": "<br />Exames laboratoriais da admissão",
+       "campo": "txt_exam_lab",
+       "tipo": "texto",
+       "colunas_in": "12",
+       "colunas_out": "12"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Data",
+       "campo": "dt_exam_lab",
+       "tipo": "data",
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "1"
+   },
+   
+   {
+       "mostrar": "in,out",
+       "label": "Creatina",
+       "campo": "exam_lab_creat",
+       "tipo": "text",
+       "placeholder": "",
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "1"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Uréia",
+       "campo": "exam_lab_ureia",
+       "tipo": "text",
+       "placeholder": "",
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "1"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Potássio",
+       "campo": "exam_lab_potas",
+       "tipo": "text",
+       "placeholder": "",
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "1"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Hemoglobina",
+       "campo": "exam_lab_hemogl",
+       "tipo": "text",
+       "placeholder": "",
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "1"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "TGP",
+       "campo": "exam_lab_tgp",
+       "tipo": "text",
+       "placeholder": "",
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "1"
+   },
+   {
+       "mostrar": "in,out",
+       "valor_padrao": "<br />Marcadores virais:",
+       "campo": "txt_sorol_vir",
+       "tipo": "texto",
+       "colunas_in": "12",
+       "colunas_out": "12"
+   },
+   {
+       "mostrar": "in,out",
+       "label": "Anti-HIV",
+       "campo": "sorol_vir_hiv",
+       "tipo": "select_valor",
+       "colunas_in": "4",
+       "colunas_out": "4",
+       "requerido": "1",
+       "opcoes": [
+           "Reagente", "Não reagente"
+       ]
+   },
+   {
+    "mostrar": "in,out",
+    "label": "Anti-HCV",
+    "campo": "sorol_vir_hcv",
+    "tipo": "select_valor",
+    "colunas_in": "4",
+    "colunas_out": "4",
+    "requerido": "1",
+    "opcoes": [
+        "Reagente", "Não reagente"
+    ]
+  },
+  {
+    "mostrar": "in,out",
+    "label": "Anti-Hbc Total",
+    "campo": "sorol_vir_hbc",
+    "tipo": "select_valor",
+    "colunas_in": "4",
+    "colunas_out": "4",
+    "requerido": "1",
+    "opcoes": [
+        "Reagente", "Não reagente"
+    ]
+  }, 
+  {
+    "mostrar": "in,out",
+    "label": "Anti-Hbc IGM",
+    "campo": "sorol_vir_hbc_igm",
+    "tipo": "select_valor",
+    "colunas_in": "4",
+    "colunas_out": "4",
+    "requerido": "1",
+    "opcoes": [
+        "Reagente", "Não reagente"
+    ]
+  }, 
+  {
+    "mostrar": "in,out",
+    "label": "HbsAg",
+    "campo": "sorol_vir_hbsag",
+    "tipo": "select_valor",
+    "colunas_in": "4",
+    "colunas_out": "4",
+    "requerido": "1",
+    "opcoes": [
+        "Positivo", "Negativo"
+    ]
+  }, 
+  {
+    "mostrar": "in,out",
+    "label": "Anti-HBS",
+    "campo": "sorol_vir_hbs",
+    "tipo": "select_valor",
+    "colunas_in": "4",
+    "colunas_out": "4",
+    "requerido": "1",
+    "opcoes": [
+        "> 10 UI/ml - reagente", "< 10 UI/ml - não reagente"
+    ]
+  }, 
+  {
+      "mostrar": "in,out",
+      "label": "Informações Diálise / Transplante Renal",
+      "campo": "tit_info_dial",
+      "tipo": "titulo5",
+      "colunas_in": "12",
+      "colunas_out": "12"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "Modalidade solicitada",
+      "campo": "mod_solic",
+      "tipo": "select_valor",
+      "colunas_in": "6",
+      "colunas_out": "6",
+      "requerido": "1",
+      "opcoes": [
+          "Hemodiálise", "Diálise Peritoneal Automática - DPA"
+      ]
+  },
+  {
+      "mostrar": "in,out",
+      "label": "Acesso Vascular",
+      "campo": "acess_vasc",
+      "tipo": "select_valor",
+      "colunas_in": "6",
+      "colunas_out": "6",
+      "requerido": "1",
+      "opcoes": [
+          "Sem acesso", "CDL Curta Permanência", "CDL Longa Permanência", "FAV"
+      ]
+  },
+  
+  {
+      "mostrar": "in,out",
+      "label": "<br />Mudança de tratamento",
+      "campo": "mudanca_tratamento",
+      "tipo": "select_valor",
+      "colunas_in": "12",
+      "colunas_out": "12",
+      "opcoes":["Sim","Não"],
+      "condition":{
+        "when":"equal",
+        "value":"Sim",
+        "action":{
+            "show":["mud_trat_sim_sol","mud_trat_sim_ant"]
+        }
+      }
+},
+  
+  {
+      "mostrar": "in,out",
+      "label": "<br/>Modalidade solicitada",
+      "campo": "mud_trat_sim_sol",
+      "classe": "hide",
+      "tipo": "text",
+      "colunas_in": "6",
+      "colunas_out": "6"
+  },
+  {
+    "mostrar": "in,out",
+    "label": "<br />Anterior",
+    "campo": "mud_trat_sim_ant",
+    "classe": "hide",
+    "tipo": "text",
+    "colunas_in": "6",
+    "colunas_out": "6"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "<br />Transplante Anterior",
+      "campo": "txt_transp_ant",
+      "tipo": "select_valor",
+      "colunas_in": "4",
+      "colunas_out": "4",
+      "opcoes":["Sim","Não"],
+      "condition":{
+        "when":"equal",
+        "value":"Sim",
+        "action":{
+            "show":["transp_ant_sim_data"]
+        }
+      }
+                
+  },
+  {
+      "mostrar": "in,out",
+      "label": "<br/> Data do transplante",
+      "campo": "transp_ant_sim_data",
+      "classe": "hide",
+      "tipo": "data",
+      "colunas_in": "4",
+      "colunas_out": "4"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "<br />Indicação atual de transplante",
+      "campo": "txt_ind_transp",
+      "tipo": "select_valor",
+      "colunas_in": "12",
+      "colunas_out": "12",
+      "opcoes":["Sim","Não"],
+      "condition":{
+        "when":"equal",
+        "value":"Sim",
+        "action":{
+            "show":["ind_transp_sim_cent_transp"]
+        }
+      }
+  },
+  
+  {
+      "mostrar": "in,out",
+      "label": "Centro Transplantador",
+      "campo": "ind_transp_sim_cent_transp",
+      "classe": "hide",
+      "tipo": "text",
+      "colunas_in": "4",
+      "colunas_out": "4"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "Dados da Unidade Solicitante",
+      "campo": "tit_dad_uni_sol",
+      "tipo": "titulo5",
+      "colunas_in": "12",
+      "colunas_out": "12"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "Unidade Solicitante",
+      "campo": "uni_sol",
+      "tipo": "text",
+      "placeholder": "",
+      "colunas_in": "12",
+      "colunas_out": "12",
+      "requerido": "1"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "Data da Internação",
+      "campo": "data_int",
+      "tipo": "data",
+      "colunas_in": "6",
+      "colunas_out": "6",
+      "requerido": "1"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "Data de início de diálise",
+      "campo": "data_ini_dia",
+      "tipo": "data",
+      "colunas_in": "6",
+      "colunas_out": "6",
+      "requerido": "1"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "Nefrologista Responsável",
+      "campo": "nef_resp",
+      "tipo": "text",
+      "placeholder": "",
+      "colunas_in": "8",
+      "colunas_out": "8",
+      "requerido": "1"
+  },
+  {
+      "mostrar": "in,out",
+      "label": "CRM",
+      "campo": "nef_crm",
+      "tipo": "text",
+      "placeholder": "",
+      "colunas_in": "4",
+      "colunas_out": "4",
+      "requerido": "1"
+  },
+  {
+  "mostrar": "in,out",
+  "label": "<b>Declaro que as informações acima prestadas são verdadeiras, e assumo a responsabilidade pelas mesmas. O titular concorda com o tratamento de seus dados pessoais para o alcance das políticas públicas, de acordo com a Lei Federal nº 13.709/2018 (LGPD).</b> ",
+  "campo": "texto_termo",
+  "tipo": "",
+  "colunas_in": "6",
+  "colunas_out": "6"
+  }
+  ]														
