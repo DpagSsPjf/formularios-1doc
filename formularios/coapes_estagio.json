@@ -1,0 +1,430 @@
+[
+    {
+        "mostrar":"in,out",
+        "label":"COAPES - Estágio Atenção Primária",
+        "campo":"dados1",
+        "tipo":"titulo5",
+        "colunas_in":"12",
+        "colunas_out":"12"
+    },  
+    {
+        "mostrar":"in,out",
+        "label":"Nome Completo do Aluno",
+        "campo":"nome_aluno",
+        "tipo":"text",
+        "colunas_in":"8",
+        "colunas_out":"8",
+        "requerido":"1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Instituição de Origem",
+        "campo": "instituicao_origem",
+        "tipo": "select_valor",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "opcoes": [
+           "CECON",
+"ELIZABETH ROMBACH",
+"ESTÁCIO",
+"GRANBERY",
+"GRAU TÉCNICO",
+"HMTJ",
+"HRJP",
+"HU/UFJF",
+"IESPE",
+"JOÃO PENIDO",
+"PROZ EDUCAÇÃO",
+"SANTA CASA",
+"SUPREMA",
+"UFJF",
+"UNIACADEMIA",
+"UNIASSELVI",
+"UNICSUM",
+"UNIPAC",
+"UNIVERSO",
+"UNOPAR",
+"VILA VERDE"
+        ],
+        "requerido":"1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Curso",
+        "campo": "curso",
+        "tipo": "select_valor",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "opcoes": [
+            "AUXILIAR ENFERMAGEM",
+            "AUXILIAR ENFERMAGEM (ESF)",
+            "CIRURGIÃO DENTISTA",
+            "ENFERMAGEM",
+            "ENFERMAGEM (AUXILIAR)",
+            "FARMÁCIA",
+            "MEDICINA (CLÍNICA)",
+            "MEDICINA (ESF)",
+            "MEDICINA (GINECOLOGIA E OBSTETRÍCIA)",
+            "MEDICINA (PEDIATRIA)",
+            "ODONTOLOGIA",
+            "SERVIÇO SOCIAL",
+            "TÉCNICO EM ENFERMAGEM"
+        ],
+        "requerido":"1"
+    },
+    {
+        "mostrar":"in,out",
+        "label":"Nome da disciplina",
+        "campo":"disciplina",
+        "tipo":"text",
+        "colunas_in":"6",
+        "colunas_out":"6",
+        "requerido":"1"
+    },
+    {
+        "mostrar":"in,out",
+        "label":"Nome do Coordenador",
+        "campo":"nome_coordenador",
+        "tipo":"text",
+        "colunas_in":"6",
+        "colunas_out":"6",
+        "requerido":"1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Data do Início das Atividades",
+        "campo": "data_inicio_atividades",
+        "tipo": "data",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Data do Fim das Atividades",
+        "campo": "data_fim_atividades",
+        "tipo": "data",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "valor_padrao": "Turno - Segunda. Caso não tenha turno no referente dia, NÃO MARQUE NADA",
+        "campo": "segunda_turno",
+        "tipo": "texto",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Manhã",
+        "campo": "segunda_manha",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Tarde",
+        "campo": "segunda_tarde",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Noite",
+        "campo": "segunda_noite",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "valor_padrao": "Turno - Terça. Caso não tenha turno no referente dia, NÃO MARQUE NADA",
+        "campo": "terca_turno",
+        "tipo": "texto",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Manhã",
+        "campo": "terca_manha",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Tarde",
+        "campo": "terca_tarde",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Noite",
+        "campo": "terca_noite",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "valor_padrao": "Turno - Quarta. Caso não tenha turno no referente dia, NÃO MARQUE NADA",
+        "campo": "quarta_turno",
+        "tipo": "texto",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Manhã",
+        "campo": "quarta_manha",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Tarde",
+        "campo": "quarta_tarde",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Noite",
+        "campo": "quarta_noite",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "valor_padrao": "Turno - Quinta. Caso não tenha turno no referente dia, NÃO MARQUE NADA",
+        "campo": "quinta_turno",
+        "tipo": "texto",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Manhã",
+        "campo": "quinta_manha",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Tarde",
+        "campo": "quinta_tarde",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Noite",
+        "campo": "quinta_noite",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "valor_padrao": "Turno - Sexta. Caso não tenha turno no referente dia, NÃO MARQUE NADA",
+        "campo": "sexta_turno",
+        "tipo": "texto",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Manhã",
+        "campo": "sexta_manha",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Tarde",
+        "campo": "sexta_tarde",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Noite",
+        "campo": "sexta_noite",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "valor_padrao": "Turno - Sábado. Caso não tenha turno no referente dia, NÃO MARQUE NADA",
+        "campo": "sabado_turno",
+        "tipo": "texto",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Manhã",
+        "campo": "sabado_manha",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Tarde",
+        "campo": "sabado_tarde",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Noite",
+        "campo": "sabado_noite",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "valor_padrao": "Turno - Domingo. Caso não tenha turno no referente dia, NÃO MARQUE NADA",
+        "campo": "domingo_turno",
+        "tipo": "texto",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Manhã",
+        "campo": "domingo_manha",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Tarde",
+        "campo": "domingo_tarde",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Noite",
+        "campo": "domingo_noite",
+        "tipo": "checkbox",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar":"in,out",
+        "label":"Carga Horária Semanal",
+        "campo":"ch_semanal",
+        "tipo":"text",
+        "colunas_in":"12",
+        "colunas_out":"12",
+        "requerido":"1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Local de atuação conforme pactuado com a Secretaria de Saúde",
+        "campo": "LOCAL_ATUACAO",
+        "tipo": "select_valor",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "opcoes": [
+            "ALTO DO GRAJAU", 
+            "BAIRRO INDUSTRIAL",
+            "BARREIRA DO TRIUNFO",
+            "BENFICA",
+            "BORBOLETA",
+            "CAETE",
+            "CENTRO SUL",
+            "CIDADE DO SOL",
+            "CRUZEIRO DO SUL",
+            "DIAS TAVARES, CHAPEU DUVAS E PAULA LIMA",
+            "DOM BOSCO",
+            "ESPLANADA",
+            "FILGUEIRAS",
+            "FURTADO DE MENEZES",
+            "GRAMA",
+            "GRANJAS BETANIA",
+            "HUMAITA",
+            "IGREJINHA",
+            "IPIRANGA",
+            "JACUTINGA",
+            "JARDIM DA LUA",
+            "JARDIM ESPERANCA",
+            "JARDIM NATAL",
+            "JOQUEI CLUBE I",
+            "JOQUEI CLUBE II",
+            "LINHARES",
+            "MARUMBI",
+            "MILHO BRANCO",
+            "MONTE CASTELO",
+            "N.S. GRAÇAS",
+            "NOSSA SENHORA APARECIDA",
+            "NOSSA SENHORA DE LOURDES",
+            "NOVA ERA",
+            "PARQUE GUARANI",
+            "PROGRESSO",
+            "RETIRO",
+            "ROSÁRIO",
+            "SANTA CECÍLIA",
+            "SANTA CRUZ",
+            "SANTA EFIGENIA",
+            "SANTA LUZIA",
+            "SANTA RITA",
+            "SANTO ANTONIO",
+            "SANTOS DUMONT",
+            "SAO BENEDITO",
+            "SAO JUDAS TADEU",
+            "SAO PEDRO",
+            "SAO SEBASTIAO",
+            "SARANDIRA",
+            "TEIXEIRAS",
+            "TOLEDOS",
+            "TORREÕES",
+            "VALADARES",
+            "VALE DOS BANDEIRANTES",
+            "VALE VERDE",
+            "VILA ESPERANÇA",
+            "VILA IDEAL",
+            "VILA OLAVO COSTA"
+        ],
+        "requerido":"1"
+    }, 
+{
+"mostrar": "in,out",
+"label": "Aceito Termos e Condições https://drive.google.com/file/d/1Oy7lPf5Qc9zEaBRaLtdn1yktp2ZPFgug/view?usp=sharing",
+"campo": "aceitar_termo",
+"tipo": "checkbox",
+"colunas_in": "12",
+"colunas_out": "12",
+"requerido": "1"
+},
+{
+"mostrar": "in,out",
+"label": "<b>Declaro que as informações acima prestadas são verdadeiras, e assumo a responsabilidade pelas mesmas. O titular concorda com o tratamento de seus dados pessoais para o alcance das políticas públicas, de acordo com a Lei Federal nº 13.709/2018 (LGPD).</b> ",
+"campo": "texto_termo",
+"tipo": "",
+"colunas_in": "6",
+"colunas_out": "6"
+}
+]														

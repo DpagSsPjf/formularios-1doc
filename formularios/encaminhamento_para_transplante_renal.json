@@ -1,0 +1,411 @@
+[
+    {
+        "mostrar": "in,out",
+        "label": "DADOS DO SERVIÇO",
+        "campo": "dados_01",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Clínica de Diálise / Ambulatório:",
+        "campo": "paciente_nome",
+        "tipo": "text",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<b> Endereço para Notificação </b>",
+        "campo": "dados_01.1",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Logradouro",
+        "campo": "logradouro_notificacao",
+        "placeholder": "Rua, Avenida, ...",
+        "tipo": "text",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1",
+        "aceita_recategorizar": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Número",
+        "campo": "numero_notificacao",
+        "tipo": "text",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Complemento (apto, casa, sala, loja etc.)",
+        "campo": "complemento_notificacao",
+        "tipo": "text",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Bairro",
+        "campo": "bairro_notificacao",
+        "tipo": "text",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CEP",
+        "campo": "cep_notificacao",
+        "tipo": "text",
+        "placeholder": "00000-000",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Telefone para Notificação",
+        "campo": "telefone_notificacao",
+        "tipo": "text",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Cidade",
+        "campo": "cidade_notificacao",
+        "tipo": "text",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "UF",
+        "campo": "uf_notificacao",
+        "tipo": "select_valor",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1",
+        "opcoes": [
+            "Acre (AC)",
+            "Alagoas (AL)",
+            "Amapá (AP)",
+            "Amazonas (AM)",
+            "Bahia (BA)",
+            "Ceará (CE)",
+            "Distrito Federal (DF)",
+            "Espírito Santo (ES)",
+            "Goiás (GO)",
+            "Maranhão (MA)",
+            "Mato Grosso (MT)",
+            "Mato Grosso do Sul (MS)",
+            "Minas Gerais (MG)",
+            "Pará (PA)",
+            "Paraíba (PB)",
+            "Paraná (PR)",
+            "Pernambuco (PE)",
+            "Piauí (PI)",
+            "Rio de Janeiro (RJ)",
+            "Rio Grande do Norte (RN)",
+            "Rio Grande do Sul (RS)",
+            "Rondônia (RO)",
+            "Roraima (RR)",
+            "Santa Catarina (SC)",
+            "São Paulo (SP)",
+            "Sergipe (SE)",
+            "Tocantins (TO)"
+        ]
+    },
+    {
+        "mostrar": "in,out",
+        "label": "DADOS DO PACIENTE",
+        "campo": "dados_02",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Paciente",
+        "campo": "paciente_nome_2",
+        "tipo": "text",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Data de Nascimento",
+        "campo": "paciente_data_nasc",
+        "tipo": "data",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CPF",
+        "campo": "paciente_cpf",
+        "tipo": "cpf",
+        "placeholder": "sem pontos e traço",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CNS (Cartão Nacional do SUS)",
+        "campo": "paciente_cns",
+        "tipo": "text",
+        "colunas_in": "6",
+        "colunas_out": "6",
+        "requerido": "1",
+        "aceita_recategorizar": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Etiologia da Doença Renal Crônica (DRG):",
+        "campo": "tex_como",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Doença Renal Diabética",
+        "campo": "como_has",
+        "tipo": "checkbox",
+        "attr": [
+            {
+                "": "this.checked ? this.style = border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white : this.style = ;"
+            }
+        ],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Doença renal policística",
+        "campo": "como_dpoc",
+        "tipo": "checkbox",
+        "attr": [
+            {
+                "": "this.checked ? this.style = border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white : this.style = ;"
+            }
+        ],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Nefrosclerose Hipertensiva",
+        "campo": "como_dm",
+        "tipo": "checkbox",
+        "attr": [
+            {
+                "": "this.checked ? this.style = border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white : this.style = ;"
+            }
+        ],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Glomerulopatia",
+        "campo": "como_obes",
+        "tipo": "checkbox",
+        "attr": [
+            {
+                "": "this.checked ? this.style = border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white : this.style = ;"
+            }
+        ],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "OUTROS",
+        "campo": "como_out",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Tratamento de DRC:",
+        "campo": "tex_tratamento",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Conservador",
+        "campo": "como_has",
+        "tipo": "checkbox",
+        "attr": [
+            {
+                "style": "this.checked ? this.style.border = 1px solid #dce4ec; this.style.borderRadius = 6px; this.style.padding = 4px; this.style.background = white : this.style = ;"
+            }
+        ],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Terapia de suporte Renal: Hemodiálise",
+        "campo": "como_dpoc",
+        "tipo": "checkbox",
+        "attr": [
+            {
+                "style": "this.checked ? this.style.border = 1px solid #dce4ec; this.style.borderRadius = 6px; this.style.padding = 4px; this.style.background = white : this.style = ;"
+            }
+        ],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Dialise peritoneal",
+        "campo": "como_dm",
+        "tipo": "checkbox",
+        "attr": [
+            {
+                "style": "this.checked ? this.style.border = 1px solid #dce4ec; this.style.borderRadius = 6px; this.style.padding = 4px; this.style.background = white : this.style = ;"
+            }
+        ],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CAPD",
+        "campo": "como_obes",
+        "tipo": "checkbox",
+        "attr": [
+            {
+                "style": "this.checked ? this.style.border = 1px solid #dce4ec; this.style.borderRadius = 6px; this.style.padding = 4px; this.style.background = white : this.style = ;"
+            }
+        ],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CRITÉRIOS DE ENCAMINHAMENTO PARA TRANSPLANTE RENAL (PORTARIA N°4, 28/09/2017, Art. 61) <br /> EM MODALIDADE TERAPEUTICA:",
+        "campo": "criterios_encaminhamento",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "I - Apresenta Índice de Filtração Glomerular Estimado (IFGE) menor que 10 mL/min/m² em não diabéticos, se idade maior ou igual a 18 anos",
+        "campo": "criterio_1",
+        "tipo": "checkbox_sim_nao",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "opcoes": [
+            {
+                "label": "Sim",
+                "valor": "sim"
+            },
+            {
+                "label": "Não",
+                "valor": "nao"
+            }
+        ]
+    },
+    {
+        "mostrar": "in,out",
+        "label": "II - Apresenta Índice de Filtração Glomerular Estimado (IFGE) igual ou menor que 15 mL/min em pacientes Diabéticos",
+        "campo": "criterio_2",
+        "tipo": "checkbox_sim_nao",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "opcoes": [
+            {
+                "label": "Sim",
+                "valor": "sim"
+            },
+            {
+                "label": "Não",
+                "valor": "nao"
+            }
+        ]
+    },
+    {
+        "mostrar": "in,out",
+        "label": "III -Diabético em tratamento conservador e apresenta Índice de Filtração Glomerular Estimado (IFGE) igual ou menor que 15 mL/min/m²",
+        "campo": "criterio_3",
+        "tipo": "checkbox_sim_nao",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "opcoes": [
+            {
+                "label": "Sim",
+                "valor": "sim"
+            },
+            {
+                "label": "Não",
+                "valor": "nao"
+            }
+        ]
+    },
+    {
+        "mostrar": "in,out",
+        "label": "IV - Apresenta Índice de Filtração Glomerular Estimado (IFGE) menor que 15 mL/min/m² com idade inferior a 18 anos",
+        "campo": "criterio_4",
+        "tipo": "checkbox_sim_nao",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "opcoes": [
+            {
+                "label": "Sim",
+                "valor": "sim"
+            },
+            {
+                "label": "Não",
+                "valor": "nao"
+            }
+        ]
+    },
+    {
+        "formulario_transplante_renal": {
+            "criterios_transplante_renal_preemptivo": {
+                "descricao": "Transplante realizado antes que o paciente inicie tratamento dialítico substitutivo",
+                "depuracao_creatinina": "Menor ou igual a 15 mL/min/m²",
+                "referencia": "PRT MS/GM2600/2009, Art61"
+            },
+            "declaracao": {
+                "texto": "Declaro que o paciente acima é acompanhado por mim nesse serviço, e encontra-se apto a realizar avaliação pré-transplante renal.",
+                "data": "//",
+                "carimbo_assinatura_nefrologista": "_"
+            },
+            "anexos": "Anexar cópia do exame comprobatório seguindo os critérios supracitados."
+        }
+    }
+]

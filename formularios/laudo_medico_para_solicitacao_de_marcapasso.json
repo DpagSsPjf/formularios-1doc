@@ -1,0 +1,984 @@
+[
+    {
+        "mostrar": "in,out",
+        "label": "IDENTIFICAÇÃO DO ESTABELECIMENTO DE SAÚDE (SOLICITANTE)",
+        "campo": "tit_id_est",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Estabelecimento",
+        "campo": "est",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CNES",
+        "campo": "cnes",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Município",
+        "campo": "municip",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Profissional solicitante",
+        "campo": "prof_solic",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CRMMG",
+        "campo": "crmmg",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Procedimento",
+        "campo": "proced",
+        "tipo": "select_valor",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1",
+        "opcoes": [
+            "Eletivo", "Urgência"
+        ],
+        "condition": {
+            "when": "equal",
+            "value": "Urgência",
+            "action": {
+                "show": ["ludo_sus"],
+                "required": ["ludo_sus"]
+            }
+        }
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Laudo SUSfácil nº",
+        "campo": "ludo_sus",
+        "tipo": "text",
+        "placeholder": "",
+        "classe": "hide",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "IDENTIFICAÇÃO DO PACIENTE",
+        "campo": "tit_id_pac",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Paciente",
+        "campo": "pac_nome",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Data de nascimento",
+        "campo": "pac_data_nasc",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CNS/SUS",
+        "campo": "pac_cns_sus",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CPF",
+        "campo": "pac_cpf",
+        "tipo": "text",
+        "placeholder": "sem pontos e traço",
+        "attr": [{
+            "": "function validarCPF(cpf) { if (!/[0-9]{11}/.test(cpf) || cpf == \"00000000000\" || cpf == \"11111111111\" || cpf == \"22222222222\" || cpf == \"33333333333\" || cpf == \"44444444444\" || cpf == \"55555555555\" || cpf == \"66666666666\" || cpf == \"77777777777\" || cpf == \"88888888888\" || cpf == \"99999999999\") return false; var add = 0; for (i=0; i < 9; i ++) add += parseInt(cpf.charAt(i)) * (10 - i); var rev = 11 - (add % 11); if (rev == 10 || rev == 11) rev = 0; if (rev != parseInt(cpf.charAt(9))) return false; add = 0; for (i = 0; i < 10; i ++) add += parseInt(cpf.charAt(i)) * (11 - i); rev = 11 - (add % 11); if (rev == 10 || rev == 11) rev = 0; if (rev != parseInt(cpf.charAt(10))) return false; return true; } if (this.value !== \"\" && !validarCPF(this.value)) { alert(\"CPF inválido\"); this.value = \"\"; return; } ",
+            "maxlength": "11"
+        }],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Sexo",
+        "campo": "pac_sex",
+        "tipo": "select_valor",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1",
+        "opcoes": [
+            "F", "M"
+        ]
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Nome do Responsável",
+        "campo": "pac_nome_resp",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Telefone",
+        "campo": "pac_tel",
+        "tipo": "text",
+        "placeholder": "(xx) xxxx-xxxx ou (xx) xxxxx-xxxx ",
+        "attr": [{
+            "": "this.value = this.value.replace(/\\D/g,\"\");this.value = this.value.replace(/^(\\d{2})(\\d)/g,\"($1) $2\");this.value=this.value.replace(/(\\d)(\\d{4})$/,\"$1-$2\");",
+            "maxlength": "15"
+        }],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "CEP",
+        "campo": "end_cep",
+        "tipo": "text",
+        "placeholder": "xxxxxxxx (sem traço)",
+        "attr": [{
+            "": "this.value = this.value.replace(/\\D/g,\"\")",
+            "": "async function pesquisacep(valor) { var res = await fetch(\"https://viacep.com.br/ws/\" + valor + \"/json/\"); var { logradouro, bairro, localidade, uf } = await res.json(); if ( logradouro !== undefined ) { document.getElementById(\"end_bai\").value = bairro; document.getElementById(\"end_logr\").value = logradouro; document.getElementById(\"end_cid\").value = localidade; document.getElementById(\"end_uf\").value = uf; } } if (this.value.length == 8) { pesquisacep(this.value) } else { this.value = \"\" }",
+            "maxlength": "8"
+        }],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Endereço",
+        "campo": "end_logr",
+        "tipo": "text",
+        "placeholder": "Rua, Avenida, Estrada, etc",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Número",
+        "campo": "end_num",
+        "tipo": "text",
+        "attr": [{
+            "": "this.value = this.value.replace(/\\D/g,\"\")",
+            "maxlength": "5"
+        }],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Complemento",
+        "campo": "end_comp",
+        "tipo": "text",
+        "placeholder": "Casa, Apto, Sala, etc",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Bairro",
+        "campo": "end_bai",
+        "tipo": "text",
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Cidade",
+        "campo": "end_cid",
+        "tipo": "text",
+        "colunas_in": "8",
+        "colunas_out": "8",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "UF",
+        "campo": "end_uf",
+        "tipo": "text",
+        "placeholder": "XX",
+        "attr": [{
+            "": "this.value = this.value.toUpperCase(); this.value = this.value.replace(/[^A-Z]+/g, \"\"); if (this.value.length == 2) { if (!this.value.match(\"^(\\s*(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO)?)$\")) { this.value = \"\" } }",
+            "maxlength": "2"
+        }],
+        "colunas_in": "4",
+        "colunas_out": "4",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "TABELA DE PROCEDIMENTOS (SELECIONAR O PROCEDIMENTO)",
+        "campo": "tab_proc",
+        "tipo": "select_valor",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1",
+        "opcoes": [
+          "04.06.01.056-0 – Implante de Cardioversor - desfibrilador de câmara única Transvenoso.",
+          "04.06.01.057-9 – Implante de Cardioversor - desfibrilador (CDI) multissítio",
+          "04.06.01.058-7 – Implante de Cardioversor -desfibrilador de câmara dupla Transvenoso.",
+          "04.06.01.059-5 - Implante de Cardioversor Desfibrilador Multissítio Endocavitário C/ Reversão para Epidemiocardico por Toracotomia",
+          "04.06.01.060-9 – Implante de Cardioversor - desfibrilador (CDI) multissítio Transvenoso.",
+           "04.06.01.061-7 - Implante de Marcapasso Cardiaco Multissitio Endocavitário C/ Reversão P/ Epidemiocardico (por toracotomia)",
+          "04.06.01.062-5 - Implante de Marcapasso Cardiaco Multissitio Epidemiocardiaco por Toracotomia P/ Implante de Eletrodo",
+          "04.06.01.063-3 – Implante de marcapasso cardíaco multissítio Transvenoso.",
+          "04.06.01.085-4 – Reposicionamento de eletrodos de Cardioversor - desfibrilador",
+          "04.06.01.087-0 – Reposicionamento de eletrodos de marcapasso multissítio",
+          "04.06.01.100-1 – Troca de conjunto do seio coronário no marcapasso multissítio",
+          "04.06.01.101-0 – Troca de eletrodos de desfibrilador de cardio-desfibrilador transvenoso",
+          "04.06.01.102-8 – Troca de eletrodos de desfibrilador no cardio-desfibrilador multissítio",
+          "04.06.01.107-9 – Troca de eletrodos de marcapasso no cardio-desfibrilador multissítio",
+          "04.06.01.108-7 – Troca de eletrodos de marcapasso no marcapasso multissítio",
+          "04.06.01.109-5 – Troca de eletrodos de seio coronário no cardioversor desfibrilador multissítio",
+          "04.06.01.110-9 - Troca de Gerador de Cardio - desfibrilador câmara única-dupla", 
+          "04.06.01.111-7 - Troca de Gerador de Cardio - desfibrilador multissítio",
+          "04.06.01.114-1 - Troca de Gerador de Marcapasso Multissitio",
+          "04.06.01.116-8 – Troca de Gerador e de eletrodos de Cardio-desfibrilador",
+          "04.06.01.117-6 - Troca de Gerador e de eletrodos de Cardio-desfibrilador Multissítio",
+          "04.06.01.119-2 – Troca de Gerador e de eletrodos no marcapasso multissítio"
+        ],
+        "conditions": [
+          {
+            "when": "equal",
+            "value": "04.06.01.110-9 - Troca de Gerador de Cardio - desfibrilador câmara única-dupla",
+            "action": {
+                "show": ["0406011109_dt_imp", "0406011109_dt_trc"],
+                "required": ["0406011109_dt_imp", "0406011109_dt_trc"]
+            }
+          },
+          {
+            "when": "equal",
+            "value": "04.06.01.111-7 - Troca de Gerador de Cardio - desfibrilador multissítio",
+            "action": {
+                "show": ["0406011117_dt_imp", "0406011117_dt_trc"],
+                "required": ["0406011117_dt_imp", "0406011117_dt_trc"]
+            }
+          },        
+          {
+            "when": "equal",
+            "value": "04.06.01.114-1 - Troca de Gerador de Marcapasso Multissitio",
+            "action": {
+                "show": ["0406011141_dt_imp", "0406011141_dt_trc"],
+                "required": ["0406011141_dt_imp", "0406011141_dt_trc"]
+            }
+          },
+          {
+            "when": "equal",
+            "value": "04.06.01.116-8 – Troca de Gerador e de eletrodos de Cardio-desfibrilador",
+            "action": {
+                "show": ["0406011168_dt_imp", "0406011168_dt_trc"],
+                "required": ["0406011168_dt_imp", "0406011168_dt_trc"]
+            }
+          },
+          {
+            "when": "equal",
+            "value": "04.06.01.117-6 - Troca de Gerador e de eletrodos de Cardio-desfibrilador Multissítio",
+            "action": {
+                "show": ["0406011176_dt_imp", "0406011176_dt_trc"],
+                "required": ["0406011176_dt_imp", "0406011176_dt_trc"]
+            }
+          },
+          {
+            "when": "equal",
+            "value": "04.06.01.119-2 – Troca de Gerador e de eletrodos no marcapasso multissítio",
+            "action": {
+                "show": ["0406011192_dt_imp", "0406011192_dt_trc"],
+                "required": ["0406011192_dt_imp", "0406011192_dt_trc"]
+            }
+          }
+        ]
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Implante",
+        "campo": "0406011109_dt_imp",
+        "classe": "hide",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+      "mostrar": "in,out",
+      "label": "Última Troca",
+      "campo": "0406011109_dt_trc",
+      "classe": "hide",
+      "tipo": "data",
+      "colunas_in": "4",
+      "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Implante",
+        "campo": "0406011117_dt_imp",
+        "classe": "hide",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+      "mostrar": "in,out",
+      "label": "Última Troca",
+      "campo": "0406011117_dt_trc",
+      "classe": "hide",
+      "tipo": "data",
+      "colunas_in": "4",
+      "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Implante",
+        "campo": "0406011141_dt_imp",
+        "classe": "hide",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+      "mostrar": "in,out",
+      "label": "Última Troca",
+      "campo": "0406011141_dt_trc",
+      "classe": "hide",
+      "tipo": "data",
+      "colunas_in": "4",
+      "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Implante",
+        "campo": "0406011168_dt_imp",
+        "classe": "hide",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+      "mostrar": "in,out",
+      "label": "Última Troca",
+      "campo": "0406011168_dt_trc",
+      "classe": "hide",
+      "tipo": "data",
+      "colunas_in": "4",
+      "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Implante",
+        "campo": "0406011176_dt_imp",
+        "classe": "hide",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+      "mostrar": "in,out",
+      "label": "Última Troca",
+      "campo": "0406011176_dt_trc",
+      "classe": "hide",
+      "tipo": "data",
+      "colunas_in": "4",
+      "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Implante",
+        "campo": "0406011192_dt_imp",
+        "classe": "hide",
+        "tipo": "data",
+        "colunas_in": "4",
+        "colunas_out": "4"
+    },
+    {
+      "mostrar": "in,out",
+      "label": "Última Troca",
+      "campo": "0406011192_dt_trc",
+      "classe": "hide",
+      "tipo": "data",
+      "colunas_in": "4",
+      "colunas_out": "4"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "JUSTIFICATIVA DO PROCEDIMENTO SOLICITADO",
+        "campo": "tit_just_proc",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<b>Resultado dos Exames(Descrever os laudos):</b>",
+        "campo": "tit_res_exam",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    
+    {
+        "mostrar": "in,out",
+        "label": "ECG com a documentação da TVS",
+        "campo": "ecg_doc_tvs",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Holter",
+        "campo": "holter",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "ECO",
+        "campo": "eco",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Angiocoronariografia ou RNM cardíaca",
+        "campo": "angio_rnn",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "História da TVS ou FV",
+        "campo": "hist_tvs_fv",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Descrição do Diagnóstico com CID 10",
+        "campo": "diag_cid",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Medicação e dosagem em uso",
+        "campo": "medic_dosag",
+        "tipo": "text",
+        "placeholder": "",
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "1"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<b>Prevenção Secundária na doença arterial coronária (DAC) crônica e MCPD não isquêmica</b>",
+        "campo": "tit_prev_sec",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Parada cardíaca por TV/FV de causa não-reversível, com FE <= 35%.",
+        "campo": "prev_sec_parad_card",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />TVS espontânea com comprometimento hemodinâmico ou síncope de causa não reversível com FE <= 35%",
+        "campo": "prev_sec_tvs_espont",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br /><b>CDI em pacientes com DAC crônica sem disfunção ventricular (só indicado se possuir todos os critérios abaixo):</b>",
+        "campo": "cdi_pac",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Apresentação com morte súbita abortada;",
+        "campo": "cdi_pac_apres_mort",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Idade menor que 60 anos e ausência de comorbidade(s) significativa(s);",
+        "campo": "cdi_pac_idade_menor",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Ausência de isquemia miocárdica aos testes funcionais cardíacos;",
+        "campo": "cdi_pac_ausen_isq",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Existência de substrato arrítmico documentado, como zonas de inatividade elétrica ao eletrocardiograma (ECG) presença de potenciais tardios ao ECG- ar (ECG de alta resolução), defeito fixo à cintilografia ou contraste tardio por gadolínio à ressonância nuclear magnética;",
+        "campo": "cdi_pac_exis_sub",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Indução de taquicardia ventricular sustentada monomórfica ao estudo eletrofisiológico, quando indicado.",
+        "campo": "cdi_pac_indu_taquic",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "IMPLANTE DE CDI EM SITUAÇÕES ESPECIAIS",
+        "campo": "tit_imp_esp",
+        "tipo": "titulo5",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<b>Taquicardia Ventricular Polimórfica Catecolaminérgica (TVPC)</b>",
+        "campo": "tit_taqui_ventric",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Pacientes com TVPC, sobreviventes de parada cardíaca.",
+        "campo": "taqui_ventric_sobrev_parad",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Pacientes com TVPC que evoluem com síncope ou TVS, apesar do uso de betabloqueadores em dose máxima tolerada.",
+        "campo": "taqui_ventric_evol_sinc",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Forte história familiar de morte súbita, associado a genótipos específicos.",
+        "campo": "taqui_ventric_fort_hist",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br /><b>Síndrome de QT longo congênito</b>",
+        "campo": "tit_sindr_qt",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Pacientes com SQTLc, sobreviventes de parada cardíaca.",
+        "campo": "sindr_qt_sobrev_para",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Pacientes com SQTLc, que evoluem com síncope ou TVS, apesar do uso de betabloqueadores em dose máxima tolerada.",
+        "campo": "sindr_qt_evol_sinc",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Forte história familiar de morte súbita, associado a genótipos específicos.",
+        "campo": "sindr_qt_fort_hist",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br /><b>Síndrome de Brugada (SB)</b>",
+        "campo": "tit_sindr_bru",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Classe I – Pacientes com SB, sobreviventes de parada cardíaca.",
+        "campo": "sindr_bru_class1",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Classe IIa – Pacientes com SB e alterações eletrocardiográficas espontâneas e síncopes.",
+        "campo": "sindr_bru_class2",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Pacientes sem história pregressa de morte súbita abortada e com síncope secundária a TVS refratária à medicação antiarrítmica ou naqueles com forte história familiar de morte súbita, associado a genótipos específicos.",
+        "campo": "sindr_bru_pac_sem_hist",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br /><b>Miocardiopatia Hipertrófica (MCPH)</b>",
+        "campo": "tit_miocar_hip",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Classe I – Pacientes com CMH que tenham apresentado TV/FV sustentada de causa não reversível.",
+        "campo": "miocar_hip_lcass1",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Classe IIa – Pacientes com CMH que apresentem 1 ou mais *fatores de risco maiores para MSC.",
+        "campo": "miocar_hip_classe2",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br /><b>*Fatores de risco maiores</b>",
+        "campo": "tit_fat_risc",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "PCR prévia",
+        "campo": "fat_risc_pcr",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />TVS espontânea",
+        "campo": "fat_risc_tvs",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Espessura septal > 30 mm ao ECO",
+        "campo": "fat_risc_esp_sep",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />História familiar de morte súbita prematura em parentes próximos",
+        "campo": "fat_risc_hist_fam",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Síncope aos esforços ou episódios de síncope recorrentes",
+        "campo": "fat_risc_sincope",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Hipotensão arterial no teste ergométrico",
+        "campo": "fat_risc_hipo",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br /><b>Cardiomiopatia Arritmogênica de Ventrículo Direito (CAVD)</b>",
+        "campo": "tit_card_arrit",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Classe I – Pacientes com CAVD que tenham apresentado TV/FV sustentada de causa não reversível.",
+        "campo": "card_arrit_class1",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Classe IIa – Pacientes com CAVD com doença extensa, incluindo envolvimento de VE, associada a história familiar de MSC em 1 ou mais membros, ou síncope de origem não determinada.",
+        "campo": "card_arrit_class2",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br /><b>Implante de Marcapasso Multissítio – Ressincronizadores Cardíacos (RC)</b>",
+        "campo": "tit_imp_marc",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Pacientes com FE <= 35%, ritmo sinusal, IC com CF III ou IV, apesar de tratamento farmacológico otimizado e QRS > 150 ms (NE A)",
+        "campo": "imp_marc_pac_fe",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked <= this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Pacientes com FE <= 35%, ritmo sinusal, IC com CF III ou IV, apesar de tratamento farmacológico otimizado, com QRS de 120 a 150ms e comprovação de dissincronismo por método de imagem – (NE A).",
+        "campo": "imp_marc_pac_fe_dissinc",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br />Pacientes com IC em CF III ou IV, sob tratamento medicamentoso otimizado, com FE <= 35%, dependentes de marcapasso convencional, quando a duração do QRS for superior a 150ms ou quando houver dissincronismo documentado por método de imagem (NE B).",
+        "campo": "imp_marc_pac_ic",
+        "tipo": "checkbox",
+        "attr": [{
+            "": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "<br /><b>Indicação de TRC-D (Terapia Combinada)</b>",
+        "campo": "tit_ind_trcd",
+        "tipo": "titulo6",
+        "colunas_in": "12",
+        "colunas_out": "12"
+    },
+    {
+        "mostrar": "in,out",
+        "label": "Pacientes com indicação de ressincronizador que tem história de fibrilação ventricular.",
+        "campo": "ind_trcd_pac_ressin",
+        "tipo": "checkbox",
+        "attr": [{
+            "onclick": "this.checked ? this.style = \"border: 1px solid #dce4ec; border-radius: 6px; padding: 4px; background: white\" : this.style = \"\""
+        }],
+        "colunas_in": "12",
+        "colunas_out": "12",
+        "requerido": "0"
+    }
+    
+  ]														
